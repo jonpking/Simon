@@ -1,0 +1,18 @@
+#container {
+    width: 50%;
+    margin:  10vh auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 25px;
+    row-gap: 25px;
+    justify-items: center;
+    align-items: center;
+}
+
+.square {
+    width: 250px;
+    height: 250px;
+    border: solid 3px blue;
+    background-color: gray;
+}
