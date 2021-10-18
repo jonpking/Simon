@@ -1,11 +1,7 @@
 const square = document.querySelectorAll(".square");
 let colorClicked;
-let inputNumber = 0;
+let inputNumber = 2;
 const generatedSequence = [];
-
-// call demo function
-// call click function
-
 
 // Clicked squares get stored into colorClicked value
 square.forEach(square => {
@@ -17,6 +13,33 @@ square.forEach(square => {
 
     });
 });
+
+
+// Generate game sequence to match and store in generatedSequence array
+const generateNextValue = () => {
+    // generate next in sequence and push into generatedSequence
+    switch (Math.floor(Math.random() * 4)) {
+        case 0:
+            generatedSequence.push("red");
+            break;
+        case 1:
+            generatedSequence.push("green");
+            break;
+        case 2:
+            generatedSequence.push("blue");
+            break;
+        case 3:
+            generatedSequence.push("yellow");
+            break;
+        default:
+            break;
+    }
+    console.log(generatedSequence);
+    // reset inputNumber
+    inputNumber = 0;
+    // call demo function
+    // call timer function
+}
 
 
 // Check if click matches
@@ -34,15 +57,6 @@ square.forEach(square => {
         // if no > do nothing
 
 
-// Generate game sequence to match and store in generatedSequence array
-
-    // generate another number
-    // push into generatedSequence
-    // reset inputNumber
-    // call demo function
-    // call timer function
-
-
 // Demo function
 
     // interate over generatedSequence
@@ -57,3 +71,7 @@ square.forEach(square => {
         // check if timer = 0
             // if yes > game over
             // if no > continue countdown
+            
+generateNextValue();
+// call demo function
+// call click function
