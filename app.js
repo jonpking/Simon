@@ -7,17 +7,14 @@ const generatedSequence = [];
 square.forEach(square => {
     square.addEventListener("click", event => {
         colorClicked = event.target.id;
-        console.log(colorClicked);
-        
         // call click match function
-
+        checkClickMatch();
     });
 });
 
 
 // Generate game sequence to match and store in generatedSequence array
 const generateNextValue = () => {
-    // generate next in sequence and push into generatedSequence
     switch (Math.floor(Math.random() * 4)) {
         case 0:
             generatedSequence.push("red");
@@ -39,14 +36,22 @@ const generateNextValue = () => {
     inputNumber = 0;
     // call demo function
     // call timer function
-}
+};
 
 
 // Check if click matches
-
     // check if click matches current index of generatedSequence
+const checkClickMatch = () => {
+    if (colorClicked === generatedSequence[inputNumber]) {
         // if yes > call sequence complete function
+        console.log("correct match");
+            // call sequence complete function
+    } else {
         // if no > game over
+        console.log("game over");
+            // call game over function
+    }
+};
 
 
 // Check if sequence complete
@@ -71,7 +76,11 @@ const generateNextValue = () => {
         // check if timer = 0
             // if yes > game over
             // if no > continue countdown
-            
+
+
+// Game over function
+
+
 generateNextValue();
 // call demo function
 // call click function
