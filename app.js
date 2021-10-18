@@ -1,6 +1,6 @@
 const square = document.querySelectorAll(".square");
 let colorClicked;
-let inputNumber = 2;
+let inputNumber;
 const generatedSequence = [];
 
 // Clicked squares get stored into colorClicked value
@@ -45,7 +45,10 @@ const checkClickMatch = () => {
     if (colorClicked === generatedSequence[inputNumber]) {
         // if yes > call sequence complete function
         console.log("correct match");
+            // increment inputNumber
+            inputNumber += 1;
             // call sequence complete function
+            checkSequenceComplete();
     } else {
         // if no > game over
         console.log("game over");
@@ -55,11 +58,14 @@ const checkClickMatch = () => {
 
 
 // Check if sequence complete
-
-    // if yes > check if inputNumber and index generatedSequence match
-        // if yes > increment inputNumber
-            //      call generate function
+const checkSequenceComplete = () => {
+    // check if inputNumber and index generatedSequence match
+    if (inputNumber === generatedSequence.length) {
+        // if yes > call generateNextValue    
+        generateNextValue();
+    }
         // if no > do nothing
+};
 
 
 // Demo function
