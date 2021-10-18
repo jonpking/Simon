@@ -3,14 +3,20 @@ let colorClicked;
 let inputNumber;
 const generatedSequence = [];
 
-// Clicked squares get stored into colorClicked value
-square.forEach(square => {
-    square.addEventListener("click", event => {
-        colorClicked = event.target.id;
-        // call click match function
-        checkClickMatch();
+
+// Game Setup function
+const gameSetup = () => {
+    // Generate initial sequence value
+    generateNextValue();
+    // Clicked squares get stored into colorClicked value
+    square.forEach(square => {
+        square.addEventListener("click", event => {
+            colorClicked = event.target.id;
+            // call click match function
+            checkClickMatch();
+        });
     });
-});
+}
 
 
 // Generate game sequence to match and store in generatedSequence array
@@ -87,6 +93,5 @@ const checkSequenceComplete = () => {
 // Game over function
 
 
-generateNextValue();
+gameSetup();
 // call demo function
-// call click function
