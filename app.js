@@ -3,6 +3,7 @@ let colorClicked;
 let inputNumber;
 const generatedSequence = [];
 let timerCount;
+let timer;
 
 
 // Game Setup function
@@ -43,7 +44,6 @@ const generateNextValue = () => {
     // reset inputNumber
     inputNumber = 0;
     // call demo function
-    // call timer function
 };
 
 
@@ -52,9 +52,11 @@ const checkClickMatch = () => {
     // check if click matches current index of generatedSequence
     if (colorClicked === generatedSequence[inputNumber]) {
         // if yes > call sequence complete function
+        clearInterval(timer);
+        countdownTimer(1000);
         console.log("correct match");
         // increment inputNumber
-        inputNumber += 1;
+        inputNumber ++;
         // call sequence complete function
         checkSequenceComplete();
     } else {
@@ -86,12 +88,14 @@ const checkSequenceComplete = () => {
 const countdownTimer = (timerInterval) => {
     // reset timer
     timerCount = 5;
+    document.querySelector("#timer").innerText = timerCount;
+
     // setup and run timer
-    let timer = setInterval(function () {
-        document.querySelector("#timer").innerText = timerCount;
+    timer = setInterval(function () {
         timerCount--;
+        document.querySelector("#timer").innerText = timerCount;
         // if timer runs out call game over function
-        if (timerCount < 0) {
+        if (timerCount < 1) {
             clearInterval(timer);
             // call game over function
         }
