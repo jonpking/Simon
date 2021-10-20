@@ -1,13 +1,15 @@
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 95vh;
 }
 
 #title {
     text-align: center;
-    padding: 15px;
-    margin: 10px;
+}
+
+#timer {
+    text-align: center;
 }
 
 #container {

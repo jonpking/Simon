@@ -2,6 +2,7 @@ const square = document.querySelectorAll(".square");
 let colorClicked;
 let inputNumber;
 const generatedSequence = [];
+let timerCount;
 
 
 // Game Setup function
@@ -16,6 +17,7 @@ const gameSetup = () => {
             checkClickMatch();
         });
     });
+    countdownTimer(1000);
 }
 
 
@@ -46,19 +48,19 @@ const generateNextValue = () => {
 
 
 // Check if click matches
-    // check if click matches current index of generatedSequence
 const checkClickMatch = () => {
+    // check if click matches current index of generatedSequence
     if (colorClicked === generatedSequence[inputNumber]) {
         // if yes > call sequence complete function
         console.log("correct match");
-            // increment inputNumber
-            inputNumber += 1;
-            // call sequence complete function
-            checkSequenceComplete();
+        // increment inputNumber
+        inputNumber += 1;
+        // call sequence complete function
+        checkSequenceComplete();
     } else {
         // if no > game over
         console.log("game over");
-            // call game over function
+        // call game over function
     }
 };
 
@@ -70,7 +72,7 @@ const checkSequenceComplete = () => {
         // if yes > call generateNextValue    
         generateNextValue();
     }
-        // if no > do nothing
+    // if no > do nothing
 };
 
 
@@ -81,17 +83,23 @@ const checkSequenceComplete = () => {
 
 
 // Timer function
-    
-    // set timer interval value
+const countdownTimer = (timerInterval) => {
     // reset timer
-    // forEach timer interval
-        // check if timer = 0
-            // if yes > game over
-            // if no > continue countdown
+    timerCount = 5;
+    // setup and run timer
+    let timer = setInterval(function () {
+        document.querySelector("#timer").innerText = timerCount;
+        timerCount--;
+        // if timer runs out call game over function
+        if (timerCount < 0) {
+            clearInterval(timer);
+            // call game over function
+        }
+    }, timerInterval);
+};
 
 
 // Game over function
-
 
 gameSetup();
 // call demo function
