@@ -18,6 +18,7 @@ const gameSetup = () => {
             checkClickMatch();
         });
     });
+    // call timer function
     countdownTimer(1000);
 }
 
@@ -51,12 +52,15 @@ const generateNextValue = () => {
 const checkClickMatch = () => {
     // check if click matches current index of generatedSequence
     if (colorClicked === generatedSequence[inputNumber]) {
-        // if yes > call sequence complete function
+        // if yes >
+        // clear previous timer
         clearInterval(timer);
+        // start new timer
         countdownTimer(1000);
+        // call sequence complete function
         console.log("correct match");
         // increment inputNumber
-        inputNumber ++;
+        inputNumber++;
         // call sequence complete function
         checkSequenceComplete();
     } else {
@@ -80,8 +84,8 @@ const checkSequenceComplete = () => {
 
 // Demo function
 
-    // interate over generatedSequence
-    // dislay each value in generatedSequence array to player
+// iterate over generatedSequence
+// dislay each value in generatedSequence array to player
 
 
 // Timer function
