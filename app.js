@@ -2,8 +2,8 @@ const square = document.querySelectorAll(".square");
 let colorClicked;
 let inputNumber;
 const generatedSequence = [];
-let timerCount;
-let timer;
+let countdownTimerDisplayValue;
+let countdownTimerDisplay;
 
 
 // Game Setup function
@@ -18,8 +18,6 @@ const gameSetup = () => {
             checkClickMatch();
         });
     });
-    // call timer function
-    countdownTimer(1000);
 }
 
 
@@ -46,6 +44,10 @@ const generateNextValue = () => {
     inputNumber = 0;
     // call demo function
     demoSequence();
+    // clear previous timer
+    clearInterval(countdownTimerDisplay);
+    // call timer function
+    countdownTimer(1000);
 };
 
 
@@ -55,7 +57,7 @@ const checkClickMatch = () => {
     if (colorClicked === generatedSequence[inputNumber]) {
         // if yes >
         // clear previous timer
-        clearInterval(timer);
+        clearInterval(countdownTimerDisplay);
         // start new timer
         countdownTimer(1000);
         // call sequence complete function
@@ -101,31 +103,24 @@ const demoSequence = () => {
             }, 500);
         }, i * 750);
     });
-    // generatedSequence.forEach(selection => {
-    //     selectedSquare = document.getElementById(selection);
-    //     console.log(selection);
-    //     selectedSquare.classList.add("selected");
-    //     setTimeout(() => { selectedSquare.classList.remove("selected") }, 500);
-    // });
 }
 
 
 // Timer function
-const countdownTimer = (timerInterval) => {
+const countdownTimer = () => {
     // reset timer
-    timerCount = 5;
-    document.querySelector("#timer").innerText = timerCount;
-
+    countdownTimerDisplayValue = 5;
+    document.querySelector("#timer").innerText = countdownTimerDisplayValue;
     // setup and run timer
-    timer = setInterval(function () {
-        timerCount--;
-        document.querySelector("#timer").innerText = timerCount;
+    countdownTimerDisplay = setInterval(function () {
+        countdownTimerDisplayValue--;
+        document.querySelector("#timer").innerText = countdownTimerDisplayValue;
         // if timer runs out call game over function
-        if (timerCount < 1) {
-            clearInterval(timer);
+        if (countdownTimerDisplayValue < 1) {
+            clearInterval(countdownTimerDisplay);
             // call game over function
         }
-    }, timerInterval);
+    }, 1000);
 };
 
 
