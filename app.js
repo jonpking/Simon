@@ -42,12 +42,13 @@ const generateNextValue = () => {
     console.log(generatedSequence);
     // reset inputNumber
     inputNumber = 0;
-    // call demo function
-    demoSequence();
     // clear previous timer
     clearInterval(countdownTimerDisplay);
-    // call timer function
-    countdownTimer(1000);
+    // call demo function
+    demoSequence().then(() => {
+        // call timer function
+        countdownTimer(1000);
+    });
 };
 
 
@@ -86,23 +87,52 @@ const checkSequenceComplete = () => {
 
 
 // Demo function
+// const demoSequence = () => {
+//     return new Promise(resolve => {
+//         // iterate over generatedSequence
+//         // dislay each value in generatedSequence array to player
+//         generatedSequence.forEach((selection, i) => {
+//             setTimeout(() => {
+//                 selectedSquare = document.getElementById(selection);
+//                 console.log("selection", selection);
+//                 setTimeout(() => {
+//                     selectedSquare.classList.add("selected");
+//                     console.log("selected");
+//                 }, 250);
+//                 setTimeout(() => {
+//                     selectedSquare.classList.remove("selected")
+//                     console.log("de-selected");
+//                 }, 500);
+//                 if (i + 1 === generatedSequence.length) {
+//                     resolve();
+//                 }
+//             }, i * 750);
+//         });
+//     });
+// }
+
 const demoSequence = () => {
-    // iterate over generatedSequence
-    // dislay each value in generatedSequence array to player
-    generatedSequence.forEach((selection, i) => {
-        setTimeout(() => {
-            selectedSquare = document.getElementById(selection);
-            console.log("selection", selection);
-            setTimeout(() => {
-                selectedSquare.classList.add("selected");
-                console.log("selected");
-            }, 250);
-            setTimeout(() => {
-                selectedSquare.classList.remove("selected")
-                console.log("de-selected");
-            }, 500);
-        }, i * 750);
+    return new Promise(async resolve => {
+        // iterate over generatedSequence
+        // dislay each value in generatedSequence array to player
+        for (let i = 0; i < generatedSequence.length; i++) {
+            selectedSquare = document.getElementById(generatedSequence[i]);
+            // console.log("selection", generatedSequence[i]);
+            await timeout(250);
+            selectedSquare.classList.add("selected");
+            // console.log("selected");
+            await timeout(500);
+            selectedSquare.classList.remove("selected")
+            // console.log("de-selected");
+            if (i + 1 === generatedSequence.length) {
+                resolve();
+            }
+        }
     });
+}
+
+const timeout = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 
