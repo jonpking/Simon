@@ -90,12 +90,16 @@ const demoSequence = () => {
     generatedSequence.forEach((selection, i) => {
         setTimeout(() => {
             selectedSquare = document.getElementById(selection);
-            console.log(selection);
-            selectedSquare.classList.add("selected");
+            console.log("selection", selection);
+            setTimeout(() => {
+                selectedSquare.classList.add("selected");
+                console.log("selected");
+            }, 250);
             setTimeout(() => {
                 selectedSquare.classList.remove("selected")
+                console.log("de-selected");
             }, 500);
-        }, i * 500);
+        }, i * 750);
     });
     // generatedSequence.forEach(selection => {
     //     selectedSquare = document.getElementById(selection);
