@@ -50,3 +50,9 @@ body {
 #yellow {
     background-color: #FCD34D;
 }
+
+.selected {
+    filter: brightness(125%);
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5); 
+}

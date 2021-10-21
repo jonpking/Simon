@@ -45,6 +45,7 @@ const generateNextValue = () => {
     // reset inputNumber
     inputNumber = 0;
     // call demo function
+    demoSequence();
 };
 
 
@@ -83,9 +84,26 @@ const checkSequenceComplete = () => {
 
 
 // Demo function
-
-// iterate over generatedSequence
-// dislay each value in generatedSequence array to player
+const demoSequence = () => {
+    // iterate over generatedSequence
+    // dislay each value in generatedSequence array to player
+    generatedSequence.forEach((selection, i) => {
+        setTimeout(() => {
+            selectedSquare = document.getElementById(selection);
+            console.log(selection);
+            selectedSquare.classList.add("selected");
+            setTimeout(() => {
+                selectedSquare.classList.remove("selected")
+            }, 500);
+        }, i * 500);
+    });
+    // generatedSequence.forEach(selection => {
+    //     selectedSquare = document.getElementById(selection);
+    //     console.log(selection);
+    //     selectedSquare.classList.add("selected");
+    //     setTimeout(() => { selectedSquare.classList.remove("selected") }, 500);
+    // });
+}
 
 
 // Timer function
@@ -110,4 +128,3 @@ const countdownTimer = (timerInterval) => {
 // Game over function
 
 gameSetup();
-// call demo function
