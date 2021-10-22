@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     height: 95vh;
+    background-color: rgb(225, 225, 225);
 }
 
 #title {
@@ -29,7 +30,6 @@ body {
 }
 
 .square {
-    border: 1px solid black;
     width: 35vmin;
     height: 35vmin;
     margin: 5px;
@@ -39,45 +39,62 @@ body {
     background-color: #DC2626;
 }
 
+#red:is(.selected) {
+    filter: brightness(120%);
+    box-shadow: 0px 0px 5px 3px #c74343;
+    -webkit-box-shadow: 0px 0px 5px 3px #c74343; 
+}
+
+#red:active {
+    filter: brightness(80%);
+    box-shadow: inset 0px 0px 15px 5px #a11616;
+    -webkit-box-shadow: inset 0px 0px 15px 5px #a11616; 
+}
+
 #blue {
     background-color: #2563EB;
+}
+
+#blue:is(.selected) {
+    filter: brightness(120%);
+    box-shadow: 0px 0px 5px 3px #254da5;
+    -webkit-box-shadow: 0px 0px 5px 3px #3a66c7; 
+}
+
+#blue:active {
+    filter: brightness(80%);
+    box-shadow: inset 0px 0px 15px 5px #0c41b3;
+    -webkit-box-shadow: inset 0px 0px 15px 5px #0c41b3; 
 }
 
 #green {
     background-color: #059669;
 }
 
+#green:is(.selected) {
+    filter: brightness(120%);
+    box-shadow: 0px 0px 5px 3px #19a075;
+    -webkit-box-shadow: 0px 0px 5px 3px #19a075; 
+}
+
+#green:active {
+    filter: brightness(80%);
+    box-shadow: inset 0px 0px 15px 5px #026344;
+    -webkit-box-shadow: inset 0px 0px 15px 5px #026344; 
+}
+
 #yellow {
     background-color: #FCD34D;
 }
 
-/* .selected {
-    filter: brightness(125%);
-    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5);
-    -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5); 
-} */
-
-#red:is(.selected) {
-    filter: brightness(125%);
-    box-shadow: 0px 0px 5px 5px #c74343;
-    -webkit-box-shadow: 0px 0px 5px 5px #c74343; 
-}
-
-#blue:is(.selected) {
-    filter: brightness(125%);
-    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5);
-    -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5); 
-}
-
-#green:is(.selected) {
-    filter: brightness(125%);
-    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5);
-    -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5); 
-}
-
 #yellow:is(.selected) {
-    filter: brightness(125%);
-    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5);
-    -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5); 
+    filter: brightness(120%);
+    box-shadow: 0px 0px 5px 3px #e6c865;
+    -webkit-box-shadow: 0px 0px 5px 3px #e6c865; 
 }
 
+#yellow:active {
+    filter: brightness(80%);
+    box-shadow: inset 0px 0px 15px 5px #c2980f;
+    -webkit-box-shadow: inset 0px 0px 15px 5px #c2980f; 
+}
