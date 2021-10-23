@@ -6,6 +6,20 @@ let countdownTimerDisplayValue;
 let countdownTimerDisplay;
 
 
+const enableClickable = () => {
+    square.forEach(square => {
+        square.addEventListener("click", colorClickFunc);
+        square.classList.add("active");
+    });
+};
+
+const disableClickable = () => {
+    square.forEach(square => {
+        square.removeEventListener("click", colorClickFunc);
+        square.classList.remove("active");
+    });
+};
+
 const colorClickFunc = () => {
     colorClicked = event.target.id;
     // call click match function
@@ -18,9 +32,7 @@ const gameSetup = () => {
     // Generate initial sequence value
     generateNextValue();
     // Clicked squares get stored into colorClicked value
-    square.forEach(square => {
-        square.addEventListener("click", colorClickFunc);
-    });
+    enableClickable();
 };
 
 
@@ -45,12 +57,14 @@ const generateNextValue = () => {
     console.log(generatedSequence);
     // reset inputNumber
     inputNumber = 0;
+    disableClickable();
     // clear previous timer
     clearInterval(countdownTimerDisplay);
     // call demo function
     demoSequence().then(() => {
         // call timer function
         countdownTimer(1000);
+        enableClickable();
     });
 };
 
@@ -159,10 +173,7 @@ const countdownTimer = () => {
 
 // Game over function
 const gameOver = () => {
-    square.forEach(square => {
-        square.removeEventListener("click", colorClickFunc);
-        square.classList.remove("active");
-    });
+    disableClickable();
 };
 
 
