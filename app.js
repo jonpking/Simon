@@ -2,11 +2,10 @@ const square = document.querySelectorAll(".square");
 let colorClicked;
 let inputNumber;
 const generatedSequence = [];
-let countdownTimerDisplayValue;
-let countdownTimerDisplay;
+let timerValue = 100;
+let timerInterval;
 let score = 0;
 let round = 1;
-let timerWidth = 100;
 
 
 const enableClickable = () => {
@@ -64,7 +63,8 @@ const generateNextValue = () => {
     roundUpdate();
     disableClickable();
     // clear previous timer
-    clearInterval(countdownTimerDisplay);
+    clearInterval(timerInterval);
+    updateTimerValue(100);
     // call demo function
     demoSequence().then(() => {
         // call timer function
@@ -80,7 +80,7 @@ const checkClickMatch = () => {
     if (colorClicked === generatedSequence[inputNumber]) {
         // if yes >
         // clear previous timer
-        clearInterval(countdownTimerDisplay);
+        clearInterval(timerInterval);
         // start new timer
         countdownTimer();
         // call sequence complete function
@@ -160,20 +160,20 @@ const timeout = (ms) => {
 
 // Timer function
 const countdownTimer = () => {
-    // reset timer
-    countdownTimerDisplayValue = 100;
-    // document.querySelector("#timer").innerText = countdownTimerDisplayValue;
     // setup and run timer
-    countdownTimerDisplay = setInterval(function () {
-        countdownTimerDisplayValue -= 2;
-        // document.querySelector("#timer").innerText = countdownTimerDisplayValue;
-        document.querySelector("#timer").style["width"] = countdownTimerDisplayValue + "%";
+    timerInterval = setInterval(function () {
+        updateTimerValue(timerValue - 2);
         // if timer runs out call game over function
-        if (countdownTimerDisplayValue <= 0) {
-            clearInterval(countdownTimerDisplay);
+        if (timerValue <= 0) {
+            clearInterval(timerInterval);
             gameOver();
         }
     }, 100);
+};
+
+const updateTimerValue = (value) => {
+    timerValue = value;
+    document.querySelector("#timer").style["width"] = timerValue + "%";
 };
 
 
