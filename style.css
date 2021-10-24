@@ -3,11 +3,12 @@ body {
     padding: 0;
     height: 95vh;
     background-color: rgb(37, 37, 37);
+    font-family: 'Squada One', cursive;
 }
 
 #title {
     text-align: center;
-    color: rgb(190, 190, 190);
+    color: rgb(215, 215, 215);
     display: flex;
     flex-direction: column;
 }
@@ -20,14 +21,15 @@ body {
 
 #scoreBoard {
     width: calc(70vmin + 10px);
-    margin: 0 auto;
+    height: 20px;
+    margin: 0 auto 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-#scoreBoard > h2 {
-    flex: 1 0 0;
+#gameOver {
+    margin: 0;
 }
 
 #roundWrapper {
@@ -45,7 +47,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid #fff;
+    border: 2px solid rgb(215, 215, 215);
     padding: 2px;
     width: 100%;
 }
