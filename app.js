@@ -175,6 +175,9 @@ const gameOver = () => {
     disableClickable();
     document.querySelector("#gameOver").classList.remove("hidden");
     document.querySelector("#timer").classList.add("hidden");
+    square.forEach(square => {
+        square.classList.add("gameOver");
+    });
 };
 
 

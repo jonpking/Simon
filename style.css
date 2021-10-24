@@ -59,6 +59,10 @@ body {
     -webkit-box-shadow: inset 0px 0px 15px 5px #a11616; 
 }
 
+#red:is(.gameOver) {
+    background-color: #3f1515;
+}
+
 #blue {
     background-color: #2563EB;
 }
@@ -73,6 +77,10 @@ body {
     filter: brightness(80%);
     box-shadow: inset 0px 0px 15px 5px #0c41b3;
     -webkit-box-shadow: inset 0px 0px 15px 5px #0c41b3; 
+}
+
+#blue:is(.gameOver) {
+    background-color: #071d4e;
 }
 
 #green {
@@ -91,6 +99,10 @@ body {
     -webkit-box-shadow: inset 0px 0px 15px 5px #026344; 
 }
 
+#green:is(.gameOver) {
+    background-color: #00291c;
+}
+
 #yellow {
     background-color: #FCD34D;
 }
@@ -105,4 +117,8 @@ body {
     filter: brightness(80%);
     box-shadow: inset 0px 0px 15px 5px #c2980f;
     -webkit-box-shadow: inset 0px 0px 15px 5px #c2980f; 
+}
+
+#yellow:is(.gameOver) {
+    background-color: #443400;
 }
