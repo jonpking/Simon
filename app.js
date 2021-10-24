@@ -5,6 +5,7 @@ const generatedSequence = [];
 let countdownTimerDisplayValue;
 let countdownTimerDisplay;
 let score = 0;
+let round = 1;
 
 
 const enableClickable = () => {
@@ -59,6 +60,7 @@ const generateNextValue = () => {
     inputNumber = 0;
     // Display/update score
     scoreUpdate();
+    roundUpdate();
     disableClickable();
     // clear previous timer
     clearInterval(countdownTimerDisplay);
@@ -186,8 +188,12 @@ const gameOver = () => {
 const scoreUpdate = () => {
     score = generatedSequence.length - 1;
     document.querySelector("#score").innerText = score;
-    console.log("score", score);
 };
+
+const roundUpdate = () => {
+    round = generatedSequence.length;
+    document.querySelector("#round").innerText = round;
+}
 
 
 gameSetup();
