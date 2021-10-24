@@ -5,6 +5,12 @@ const generatedSequence = [];
 let timerValue = 100;
 let timerInterval;
 let round = 1;
+const sounds = {
+    red: new Audio("sounds/redSound.mp3"),
+    blue: new Audio("sounds/blueSound.mp3"),
+    green: new Audio("sounds/greenSound.mp3"),
+    yellow: new Audio("sounds/yellowSound.mp3")
+};
 
 
 const enableClickable = () => {
@@ -23,6 +29,7 @@ const disableClickable = () => {
 
 const colorClickFunc = (event) => {
     colorClicked = event.target.id;
+    sounds[colorClicked].play();
     // call click match function
     checkClickMatch();
 };
