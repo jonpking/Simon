@@ -20,10 +20,47 @@ body {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+#scoreBoard > h2 {
+    flex: 1 0 0;
+}
+
+#roundWrapper {
+    text-align: left;
+}
+
+#timerWrapper {
+    display: flex;
+    flex-grow: 2;
+    justify-content: center;
+    align-items: center;
+}
+
+#timerBorder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #fff;
+    padding: 2px;
+    width: 100%;
+    margin: 0 10px;
+}
+
+#timer {
+    background: rgb(184,125,187);
+    background: linear-gradient(90deg, rgba(184,125,187,1) 0%, rgba(122,18,129,1) 50%, rgba(184,125,187,1) 100%);
+    height: 10px;
+    transition: width 25ms;
+}
+
+#scoreWrapper {
+    text-align: right;
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .container {

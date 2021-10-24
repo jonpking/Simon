@@ -6,6 +6,7 @@ let countdownTimerDisplayValue;
 let countdownTimerDisplay;
 let score = 0;
 let round = 1;
+let timerWidth = 100;
 
 
 const enableClickable = () => {
@@ -67,7 +68,7 @@ const generateNextValue = () => {
     // call demo function
     demoSequence().then(() => {
         // call timer function
-        countdownTimer(1000);
+        countdownTimer();
         enableClickable();
     });
 };
@@ -81,7 +82,7 @@ const checkClickMatch = () => {
         // clear previous timer
         clearInterval(countdownTimerDisplay);
         // start new timer
-        countdownTimer(1000);
+        countdownTimer();
         // call sequence complete function
         console.log("correct match");
         // increment inputNumber
@@ -160,35 +161,40 @@ const timeout = (ms) => {
 // Timer function
 const countdownTimer = () => {
     // reset timer
-    countdownTimerDisplayValue = 5;
-    document.querySelector("#timer").innerText = countdownTimerDisplayValue;
+    countdownTimerDisplayValue = 100;
+    // document.querySelector("#timer").innerText = countdownTimerDisplayValue;
     // setup and run timer
     countdownTimerDisplay = setInterval(function () {
-        countdownTimerDisplayValue--;
-        document.querySelector("#timer").innerText = countdownTimerDisplayValue;
+        countdownTimerDisplayValue -= 2;
+        // document.querySelector("#timer").innerText = countdownTimerDisplayValue;
+        document.querySelector("#timer").style["width"] = countdownTimerDisplayValue + "%";
         // if timer runs out call game over function
-        if (countdownTimerDisplayValue < 1) {
+        if (countdownTimerDisplayValue <= 0) {
             clearInterval(countdownTimerDisplay);
             gameOver();
         }
-    }, 1000);
+    }, 100);
 };
 
 
 // Game over function
 const gameOver = () => {
     disableClickable();
-    document.querySelector("#gameOver").classList.remove("hidden");
-    document.querySelector("#timer").classList.add("hidden");
-    square.forEach(square => {
-        square.classList.add("gameOver");
+    timeout(100).then(() => {
+        document.querySelector("#gameOver").classList.remove("hidden");
+        document.querySelector("#timerBorder").classList.add("hidden");
+        square.forEach(square => {
+            square.classList.add("gameOver");
+        });
     });
 };
+
 
 const scoreUpdate = () => {
     score = generatedSequence.length - 1;
     document.querySelector("#score").innerText = score;
 };
+
 
 const roundUpdate = () => {
     round = generatedSequence.length;
