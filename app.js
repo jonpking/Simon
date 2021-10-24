@@ -32,7 +32,6 @@ const gameSetup = () => {
     // Generate initial sequence value
     generateNextValue();
     // Clicked squares get stored into colorClicked value
-    enableClickable();
 };
 
 
@@ -174,6 +173,8 @@ const countdownTimer = () => {
 // Game over function
 const gameOver = () => {
     disableClickable();
+    document.querySelector("#gameOver").classList.remove("hidden");
+    document.querySelector("#timer").classList.add("hidden");
 };
 
 
