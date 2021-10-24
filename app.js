@@ -12,7 +12,6 @@ const sounds = {
     yellow: new Audio("sounds/yellowSound.mp3")
 };
 
-
 const enableClickable = () => {
     square.forEach(square => {
         square.addEventListener("click", colorClickFunc);
@@ -34,14 +33,12 @@ const colorClickFunc = (event) => {
     checkClickMatch();
 };
 
-
 // Game Setup function
 const gameSetup = () => {
     // Generate initial sequence value
     generateNextValue();
     // Clicked squares get stored into colorClicked value
 };
-
 
 // Generate game sequence to match and store in generatedSequence array
 const generateNextValue = () => {
@@ -78,7 +75,6 @@ const generateNextValue = () => {
     });
 };
 
-
 // Check if click matches
 const checkClickMatch = () => {
     // check if click matches current index of generatedSequence
@@ -101,7 +97,6 @@ const checkClickMatch = () => {
     }
 };
 
-
 // Check if sequence complete
 const checkSequenceComplete = () => {
     // check if inputNumber and index generatedSequence match
@@ -111,32 +106,6 @@ const checkSequenceComplete = () => {
     }
     // if no > do nothing
 };
-
-
-// Demo function
-// const demoSequence = () => {
-//     return new Promise(resolve => {
-//         // iterate over generatedSequence
-//         // dislay each value in generatedSequence array to player
-//         generatedSequence.forEach((selection, i) => {
-//             setTimeout(() => {
-//                 selectedSquare = document.getElementById(selection);
-//                 console.log("selection", selection);
-//                 setTimeout(() => {
-//                     selectedSquare.classList.add("selected");
-//                     console.log("selected");
-//                 }, 250);
-//                 setTimeout(() => {
-//                     selectedSquare.classList.remove("selected")
-//                     console.log("de-selected");
-//                 }, 500);
-//                 if (i + 1 === generatedSequence.length) {
-//                     resolve();
-//                 }
-//             }, i * 750);
-//         });
-//     });
-// }
 
 const demoSequence = () => {
     return new Promise(async resolve => {
@@ -162,7 +131,6 @@ const timeout = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-
 // Timer function
 const countdownTimer = () => {
     // setup and run timer
@@ -181,7 +149,6 @@ const updateTimerValue = (value) => {
     document.querySelector("#timer").style["width"] = timerValue + "%";
 };
 
-
 // Game over function
 const gameOver = () => {
     disableClickable();
@@ -194,11 +161,9 @@ const gameOver = () => {
     });
 };
 
-
 const roundUpdate = () => {
     round = generatedSequence.length;
     document.querySelector("#round").innerText = round;
 }
-
 
 gameSetup();
