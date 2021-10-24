@@ -4,7 +4,6 @@ let inputNumber;
 const generatedSequence = [];
 let timerValue = 100;
 let timerInterval;
-let score = 0;
 let round = 1;
 
 
@@ -59,7 +58,6 @@ const generateNextValue = () => {
     // reset inputNumber
     inputNumber = 0;
     // Display/update score
-    scoreUpdate();
     roundUpdate();
     disableClickable();
     // clear previous timer
@@ -162,7 +160,7 @@ const timeout = (ms) => {
 const countdownTimer = () => {
     // setup and run timer
     timerInterval = setInterval(function () {
-        updateTimerValue(timerValue - 2);
+        updateTimerValue(timerValue - generatedSequence.length * .5);
         // if timer runs out call game over function
         if (timerValue <= 0) {
             clearInterval(timerInterval);
@@ -187,12 +185,6 @@ const gameOver = () => {
             square.classList.add("gameOver");
         });
     });
-};
-
-
-const scoreUpdate = () => {
-    score = generatedSequence.length - 1;
-    document.querySelector("#score").innerText = score;
 };
 
 
