@@ -2,19 +2,12 @@ body {
     margin: 0;
     padding: 0;
     height: 95vh;
-    background-color: rgb(225, 225, 225);
+    background-color: rgb(37, 37, 37);
 }
 
 #title {
     text-align: center;
-}
-
-#timer {
-    text-align: center;
-}
-
-#gameOver {
-    text-align: center;
+    color: rgb(190, 190, 190);
 }
 
 .hidden {
@@ -40,21 +33,35 @@ body {
 .square {
     width: 35vmin;
     height: 35vmin;
-    margin: 5px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+#red, #blue, #green, #yellow {
+    transition: transform 150ms;
+}
+
+#red:is(.selected), #blue:is(.selected), #green:is(.selected), #yellow:is(.selected) {
+    filter: brightness(120%);
+    box-shadow: 0px 0px 10px 3px;
+    -webkit-box-shadow: 0px 0px 10px 3px;
+}
+
+#red:hover, #blue:hover, #green:hover, #yellow:hover {
+    transform: scale(1.02, 1.02);
+}
+
+#red:active:is(.active), #blue:active:is(.active), #green:active:is(.active), #yellow:active:is(.active) {
+    transform: scale(.98);
+    filter: brightness(90%);
 }
 
 #red {
     background-color: #DC2626;
-}
-
-#red:is(.selected) {
-    filter: brightness(120%);
-    box-shadow: 0px 0px 5px 3px #c74343;
-    -webkit-box-shadow: 0px 0px 5px 3px #c74343; 
+    color: hsl(0, 82%, 51%);
 }
 
 #red:active:is(.active) {
-    filter: brightness(80%);
     box-shadow: inset 0px 0px 15px 5px #a11616;
     -webkit-box-shadow: inset 0px 0px 15px 5px #a11616; 
 }
@@ -65,16 +72,10 @@ body {
 
 #blue {
     background-color: #2563EB;
-}
-
-#blue:is(.selected) {
-    filter: brightness(120%);
-    box-shadow: 0px 0px 5px 3px #254da5;
-    -webkit-box-shadow: 0px 0px 5px 3px #3a66c7; 
+    color: hsl(221, 93%, 53%);
 }
 
 #blue:active:is(.active) {
-    filter: brightness(80%);
     box-shadow: inset 0px 0px 15px 5px #0c41b3;
     -webkit-box-shadow: inset 0px 0px 15px 5px #0c41b3; 
 }
@@ -85,16 +86,10 @@ body {
 
 #green {
     background-color: #059669;
-}
-
-#green:is(.selected) {
-    filter: brightness(120%);
-    box-shadow: 0px 0px 5px 3px #19a075;
-    -webkit-box-shadow: 0px 0px 5px 3px #19a075; 
+    color: hsl(161, 100%, 30%);
 }
 
 #green:active:is(.active) {
-    filter: brightness(80%);
     box-shadow: inset 0px 0px 15px 5px #026344;
     -webkit-box-shadow: inset 0px 0px 15px 5px #026344; 
 }
@@ -105,16 +100,10 @@ body {
 
 #yellow {
     background-color: #FCD34D;
-}
-
-#yellow:is(.selected) {
-    filter: brightness(120%);
-    box-shadow: 0px 0px 5px 3px #e6c865;
-    -webkit-box-shadow: 0px 0px 5px 3px #e6c865; 
+    color: hsl(46, 100%, 65%);
 }
 
 #yellow:active:is(.active) {
-    filter: brightness(80%);
     box-shadow: inset 0px 0px 15px 5px #c2980f;
     -webkit-box-shadow: inset 0px 0px 15px 5px #c2980f; 
 }

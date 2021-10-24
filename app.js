@@ -4,6 +4,7 @@ let inputNumber;
 const generatedSequence = [];
 let countdownTimerDisplayValue;
 let countdownTimerDisplay;
+let score = 0;
 
 
 const enableClickable = () => {
@@ -20,7 +21,7 @@ const disableClickable = () => {
     });
 };
 
-const colorClickFunc = () => {
+const colorClickFunc = (event) => {
     colorClicked = event.target.id;
     // call click match function
     checkClickMatch();
@@ -56,6 +57,8 @@ const generateNextValue = () => {
     console.log(generatedSequence);
     // reset inputNumber
     inputNumber = 0;
+    // Display/update score
+    scoreUpdate();
     disableClickable();
     // clear previous timer
     clearInterval(countdownTimerDisplay);
@@ -178,6 +181,12 @@ const gameOver = () => {
     square.forEach(square => {
         square.classList.add("gameOver");
     });
+};
+
+const scoreUpdate = () => {
+    score = generatedSequence.length - 1;
+    document.querySelector("#score").innerText = score;
+    console.log("score", score);
 };
 
 
