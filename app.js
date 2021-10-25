@@ -58,7 +58,6 @@ const generateNextValue = () => {
         default:
             break;
     }
-    console.log(generatedSequence);
     // reset inputNumber
     inputNumber = 0;
     // Display/update score
@@ -84,15 +83,12 @@ const checkClickMatch = () => {
         clearInterval(timerInterval);
         // start new timer
         countdownTimer();
-        // call sequence complete function
-        console.log("correct match");
         // increment inputNumber
         inputNumber++;
         // call sequence complete function
         checkSequenceComplete();
     } else {
         // if no > call game over function
-        console.log("game over");
         gameOver();
     }
 };
@@ -113,13 +109,10 @@ const demoSequence = () => {
         // dislay each value in generatedSequence array to player
         for (let i = 0; i < generatedSequence.length; i++) {
             selectedSquare = document.getElementById(generatedSequence[i]);
-            // console.log("selection", generatedSequence[i]);
             await timeout(250);
             selectedSquare.classList.add("selected");
-            // console.log("selected");
             await timeout(500);
             selectedSquare.classList.remove("selected")
-            // console.log("de-selected");
             if (i + 1 === generatedSequence.length) {
                 resolve();
             }
