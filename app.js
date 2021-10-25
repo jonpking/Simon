@@ -82,6 +82,7 @@ const checkClickMatch = () => {
         // clear previous timer
         clearInterval(timerInterval);
         // start new timer
+        updateTimerValue(100);
         countdownTimer();
         // increment inputNumber
         inputNumber++;
