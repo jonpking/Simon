@@ -17,6 +17,7 @@ body {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    width: 100%;
 }
 
 #timerBoard {
@@ -87,7 +88,6 @@ body {
     height: 35vmin;
     margin: 10px;
     border-radius: 5px;
-    cursor: pointer;
 }
 
 #red, #blue, #green, #yellow {
@@ -102,6 +102,7 @@ body {
 
 #red:hover:is(.active), #blue:hover:is(.active), #green:hover:is(.active), #yellow:hover:is(.active) {
     transform: scale(1.02, 1.02);
+    cursor: pointer;
 }
 
 #red:active:is(.active), #blue:active:is(.active), #green:active:is(.active), #yellow:active:is(.active) {
