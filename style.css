@@ -19,7 +19,7 @@ body {
     align-items: center;
 }
 
-#scoreBoard {
+#timerBoard {
     width: calc(70vmin + 10px);
     height: 20px;
     margin: 0 auto 20px;
