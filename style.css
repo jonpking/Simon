@@ -125,8 +125,8 @@ body {
 
 #red:is(.selected), #blue:is(.selected), #green:is(.selected), #yellow:is(.selected) {
     filter: brightness(120%);
-    box-shadow: 0px 0px 10px 3px;
-    -webkit-box-shadow: 0px 0px 10px 3px;
+    box-shadow: 0px 0px 10px 8px;
+    -webkit-box-shadow: 0px 0px 10px 8px;
 }
 
 #red:hover:is(.active), #blue:hover:is(.active), #green:hover:is(.active), #yellow:hover:is(.active) {
