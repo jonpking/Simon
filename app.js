@@ -67,11 +67,9 @@ const startResetFunc = () => {
     startResetBtn.addEventListener("click", function () {
         if (btnState === "start") {
             startResetBtn.innerText = "Reset Game";
-            console.log("start text");
             gameSetup();
         } else if (btnState === "reset") {
             startResetBtn.innerText = "Start Game";
-            console.log("reset text");
             resetGame();
         };
     });
@@ -149,6 +147,7 @@ const demoSequence = () => {
             selectedSquare = document.getElementById(generatedSequence[i]);
             await timeout(250);
             selectedSquare.classList.add("selected");
+            sounds[generatedSequence[i]].play();
             await timeout(500);
             selectedSquare.classList.remove("selected")
             if (i + 1 === generatedSequence.length) {
